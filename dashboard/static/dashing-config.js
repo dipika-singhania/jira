@@ -24,7 +24,10 @@ function curEvalWidget(json_text,name,type,row,col){
     });
 }
 
-// httpGet('http://localhost:8000/dashing/widgets/custom_widget/3', curEvalWidget , 'c1' , 'Number',1,1)
-httpGet('http://localhost:8000/dashing/widgets/open_issues/1', curEvalWidget , 'open_issues' , 'Number',1,3)
-httpGet('http://localhost:8000/dashing/widgets/close_issues/1', curEvalWidget , 'close_issues' , 'Number',1,3)
-httpGet('http://localhost:8000/dashing/widgets/completion/1', curEvalWidget , 'completion' , 'Graph',2,3)
+function callMethods(projectid) {
+    // httpGet('http://localhost:8000/dashing/widgets/custom_widget/3', curEvalWidget , 'c1' , 'Number',1,1)
+    httpGet('http://localhost:8000/dashing/widgets/open_issues/'+projectid, curEvalWidget , 'open_issues' , 'Number',1,3)
+    // httpGet('http://localhost:8000/dashing/widgets/close_issues/'+projectid, curEvalWidget , 'close_issues' , 'Number',1,3)
+    // httpGet('http://localhost:8000/dashing/widgets/open_list/'+projectid, curEvalWidget , 'open_list' , 'List',3,1)
+    // httpGet('http://localhost:8000/dashing/widgets/completion/'+projectid, curEvalWidget , 'completion' , 'Graph',2,3)
+}

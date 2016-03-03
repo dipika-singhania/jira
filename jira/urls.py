@@ -18,13 +18,14 @@ from django.contrib import admin
 from dashing.utils import router
 from .widgets import *
 from dashboard import urls
-router.register(CustomWidget, 'custom_widget', eg_kwargs_param="[A-Za-z0-9_-]+")
-router.register(OpenIssuesWidget, 'open_issues', eg_kwargs_param="[A-Za-z0-9_-]+")
-router.register(ClosedIssuesWidget, 'close_issues', eg_kwargs_param="[A-Za-z0-9_-]+")
-router.register(CompletionGraph, 'completion', eg_kwargs_param="[A-Za-z0-9_-]+")
+router.register(CustomWidget, 'custom_widget', projectid="[A-Za-z0-9_-]+")
+router.register(OpenIssuesWidget, 'open_issues', projectid="[A-Za-z0-9_-]+")
+router.register(ClosedIssuesWidget, 'close_issues', projectid="[A-Za-z0-9_-]+")
+router.register(CompletionGraph, 'completion', projectid="[A-Za-z0-9_-]+")
+router.register(Top20OpenList, 'open_list', projectid="[A-Za-z0-9_-]+")
 
 urlpatterns = [
-	url(r'^admin/', include(admin.site.urls)),
-	url(r'^dashing/', include(router.urls)),
-	url(r'^custom/', include(urls)),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^dashing/', include(router.urls)),
+    url(r'^custom/', include(urls)),
 ]
